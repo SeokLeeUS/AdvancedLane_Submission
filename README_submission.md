@@ -34,10 +34,9 @@ The goals / steps of this project are the following:
 
 ---
 
-
 ### Camera Calibration
 
-### 0. Extract camera calibration
+### 0. Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
 
 import a function that takes an image, object points, and image points performs the camera calibration, image distortion correction and 
 returns the undistorted image
@@ -45,9 +44,7 @@ returns the undistorted image
 ![Camera_Calibration](./camera_cal/corners_found8.jpg)
 
 
-#### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
-
-
+#### 1. Apply a distortion correction to raw images.
 
 The code for this step is contained in the first code cell of the IPython notebook located in "./cam_cal.py.ipynb". 
 
@@ -57,9 +54,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ![Camera_Calibration](./test_images/undistort0.jpg)
 
-### Pipeline (single images)
-
-#### 1. Provide an example of a distortion-corrected image.
+#### 3. Use color transforms, gradients, etc., to create a thresholded binary image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 ![original image](./test_images/undistort2.jpg)
@@ -70,7 +65,7 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 ![color_gradient](./test_images/color_gradient2.jpg)
 
-#### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
+#### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image. 
 
 The code for my perspective transform calls 'getPerspectiveTransform' function from 'cv2. The function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
@@ -78,25 +73,26 @@ The code for my perspective transform calls 'getPerspectiveTransform' function f
  src = np.float32([[img.shape[1]*(.5-mid_width/2),img.shape[0]*height_pct],[img.shape[1]*(.5+mid_width/2),img.shape[0]*height_pct],[img.shape[1]*(.5+bot_width/2),img.shape[0]*bottom_trim],[img.shape[1]*(.5-bot_width/2),img.shape[0]*bottom_trim]])
     dst = np.float32([[offset, 0], [img_size[0]-offset, 0],[img_size[0]-offset, img_size[1]],[offset, img_size[1]]])
 ```
+#### 4. Apply a perspective transform to rectify binary image ("birds-eye view").
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.The associated file is 'image_gen-perspective_transform.py.ipynb'
 
 ![perspective_transform](./test_images/perspective_transform2.jpg)
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+#### 5. Detect lane pixels and fit to find the lane boundary.
 
 Then found the lane line('image_gen-identify_lane_finding.py.ipynb) with a 2nd order polynomial ('image_gen-identify_lane_finding_polynominal.py.ipynb') this:
 
 ![lanefinding](./test_images/identify_lane_finding2.jpg)
 ![lanefinding_poly](./test_images/identify_lane_finding_polyfit2.jpg)
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### 6. Determine the curvature of the lane and vehicle position with respect to center.
 
 I did this @ my code ( `image_gen-Camera_Center_Cal_Curvature.py.ipynb`)
 
 ![Cal_Curvature](./test_images/cal_curvature2.jpg)
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+#### 7. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 Here is an example of my result on a test image:
 
@@ -106,7 +102,7 @@ Here is an example of my result on a test image:
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 Here's a [video result](./output_videos/output1_project_video.mp4)
 
@@ -116,4 +112,5 @@ Here's a [video result](./output_videos/output1_project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+This is a truely challenging task. 
+
