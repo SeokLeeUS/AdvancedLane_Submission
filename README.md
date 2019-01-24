@@ -1,5 +1,6 @@
-
-
+### I watched Udacity video session for advanced lane finding:
+https://www.youtube.com/watch?v=vWY8YUayf9Q&feature=youtu.be
+This work is based on the codes appeared on videos, but examined line by line to understand. 
 
 ## Advanced Lane Finding
 ![Lanes Image](./test_images/final5.jpg)
@@ -54,18 +55,18 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ![Camera_Calibration](./test_images/undistort0.jpg)
 
-#### 3. Use color transforms, gradients, etc., to create a thresholded binary image.
+#### 2. Use color transforms, gradients, etc., to create a thresholded binary image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 ![original image](./test_images/undistort2.jpg)
 
-#### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
+#### 3. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `image_gen-color_gradient.py.ipynb`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
 ![color_gradient](./test_images/color_gradient2.jpg)
 
-#### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image. 
+#### 4. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image. 
 
 The code for my perspective transform calls 'getPerspectiveTransform' function from 'cv2. The function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
@@ -73,26 +74,26 @@ The code for my perspective transform calls 'getPerspectiveTransform' function f
  src = np.float32([[img.shape[1]*(.5-mid_width/2),img.shape[0]*height_pct],[img.shape[1]*(.5+mid_width/2),img.shape[0]*height_pct],[img.shape[1]*(.5+bot_width/2),img.shape[0]*bottom_trim],[img.shape[1]*(.5-bot_width/2),img.shape[0]*bottom_trim]])
     dst = np.float32([[offset, 0], [img_size[0]-offset, 0],[img_size[0]-offset, img_size[1]],[offset, img_size[1]]])
 ```
-#### 4. Apply a perspective transform to rectify binary image ("birds-eye view").
+#### 5. Apply a perspective transform to rectify binary image ("birds-eye view").
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.The associated file is 'image_gen-perspective_transform.py.ipynb'
 
 ![perspective_transform](./test_images/perspective_transform2.jpg)
 
-#### 5. Detect lane pixels and fit to find the lane boundary.
+#### 6. Detect lane pixels and fit to find the lane boundary.
 
 Then found the lane line('image_gen-identify_lane_finding.py.ipynb) with a 2nd order polynomial ('image_gen-identify_lane_finding_polynominal.py.ipynb') this:
 
 ![lanefinding](./test_images/identify_lane_finding2.jpg)
 ![lanefinding_poly](./test_images/identify_lane_finding_polyfit2.jpg)
 
-#### 6. Determine the curvature of the lane and vehicle position with respect to center.
+#### 7. Determine the curvature of the lane and vehicle position with respect to center.
 
 I did this @ my code ( `image_gen-Camera_Center_Cal_Curvature.py.ipynb`)
 
 ![Cal_Curvature](./test_images/cal_curvature2.jpg)
 
-#### 7. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+#### 8. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 Here is an example of my result on a test image:
 
