@@ -1,3 +1,6 @@
+
+
+
 ## Advanced Lane Finding
 ![Lanes Image](./test_images/final5.jpg)
 ---
@@ -34,7 +37,14 @@ The goals / steps of this project are the following:
 
 ### Camera Calibration
 
+### 0. Extract camera calibration
+
+![Camera_Calibration](./camera_cal/corners_found8.jpg)
+
+
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
+
+
 
 The code for this step is contained in the first code cell of the IPython notebook located in "./cam_cal.py.ipynb". 
 
