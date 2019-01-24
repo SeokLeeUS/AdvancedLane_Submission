@@ -39,6 +39,9 @@ The goals / steps of this project are the following:
 
 ### 0. Extract camera calibration
 
+import a function that takes an image, object points, and image points performs the camera calibration, image distortion correction and 
+returns the undistorted image
+
 ![Camera_Calibration](./camera_cal/corners_found8.jpg)
 
 
