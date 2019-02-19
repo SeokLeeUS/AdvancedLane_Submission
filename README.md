@@ -114,4 +114,20 @@ Here's a [video result](./output_videos/output1_project_video.mp4)
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 This is a truely challenging task. 
+In order to tackle this various sources were referred:
+
+- Python classes: the following on-line classes helped:
+https://www.udemy.com/complete-python-bootcamp/
+https://www.coursera.org/specializations/python
+
+- Python book:
+learn python 3.0 visually
+
+- Several other learning materials:
+https://wikidocs.net/book/110
+https://www.youtube.com/playlist?list=PLEA1FEF17E1E5C0DA
+
+Tried to implement magnitude & directional gradient to detect edge along with sobel/ color thresholding, but the result doesn't promissing, therefore, use only sobel/color threshold based edge detection. 
+
+
 
