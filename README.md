@@ -129,5 +129,8 @@ https://www.youtube.com/playlist?list=PLEA1FEF17E1E5C0DA
 
 Tried to implement magnitude & directional gradient to detect edge along with sobel/ color thresholding, but the result doesn't promissing, therefore, use only sobel/color threshold based edge detection. 
 
+Learning progress for this specific nano degree as well as other fundamental learning (C/Python/Tensorflow/Keras) is tracked in the google sheet: 
+
+https://docs.google.com/spreadsheets/d/1ZMtaS0Ifh5b9AcZpMV0RAKk8vmG7To65acA2ZQdAIHE/edit?usp=sharing
 
 
