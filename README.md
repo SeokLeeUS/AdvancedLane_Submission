@@ -1,6 +1,6 @@
-### I watched Udacity video session for advanced lane finding:
+<!--### I watched Udacity video session for advanced lane finding:
 https://www.youtube.com/watch?v=vWY8YUayf9Q&feature=youtu.be
-This work is based on the codes appeared on videos, but examined line by line to understand. 
+This work is based on the codes appeared on videos, but examined line by line to understand. -->
 
 ## Advanced Lane Finding
 ![Lanes Image](./test_images/final5.jpg)
